@@ -138,7 +138,7 @@ toImage !arr = unsafeTraverse arr8 (:. 4) chans where
 -- for now to simplify passing this data through the chain all the way
 -- to `wave`.
 imageSize :: (Int, Int)
-imageSize = (768, 1366)
+imageSize = (1200, 1920)
 
 -- | 3, 2, 1, let's jam!
 main :: IO ()
@@ -147,8 +147,8 @@ main = do
   -- line.  If animated, also take in a specification for phase
   -- progression.
   let nwave = 11
-      frequency = 1.0 :: Float
-      phases = [0.1..]
+      frequency = 1.0 / 3.0 :: Float
+      phases = [0,0.1..]
       arr = mkArray nwave frequency (take nwave $ cycle phases) imageSize
   putStrLn $
    printf "Rendering %dx%d pixel image with %d waves and frequency %f pixels."
