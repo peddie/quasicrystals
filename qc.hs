@@ -51,12 +51,13 @@
 --   -of lavf -vf crop=1920:1200 mf://*.png -ofps 25 -o waves.mkv
 --
 -- You can turn it into a gif as well, but beware -- it may be giant
--- and slow to display.  Consider cropping or scaling to 480x300 instead.
+-- and slow to display.  Consider cropping (-vf crop=w:h) or scaling
+-- (-vf scale=w:h) to 480x300 instead.
 --
 --   mplayer -vo gif89a:fps=22:output=waves_tmp.gif -ao null -vf        \
---   crop=960:600 waves.mkv
+--   crop=960:600 -speed 22 waves.mkv
 --
---   convert -delay 17 waves_tmp.gif waves.gif
+--   convert -delay 9 waves_tmp.gif waves.gif
 -----------------------------------------------------------------------------
 
 import Data.Array.Repa ( Array, DIM2, DIM3, Z(..), (:.)(..))
