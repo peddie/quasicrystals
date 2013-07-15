@@ -1,14 +1,7 @@
 /* Copyright 2013 Matthew Peddie <peddie@alum.mit.edu>
  *
- * See qc.hs for comments and explanation.
+ * See README.md for more comments and explanation.
  *
- * Compilation command:
- *   gcc -std=gnu99 -Wall -Wextra -lm -lrt -lfreeimage -O3         \
- *   -ftree-vectorize -march=native -o quasi quasicrystal.c
- *
- * Run command:
- *
- *   time ./quasi
  */
 
 #include <stdio.h>
