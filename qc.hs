@@ -83,7 +83,7 @@ angles n = take n $ enumFromThen 0 (pi / fromIntegral n)
 -- | Combine a list of wave functions into a single wave function.
 -- The unused argument is the number of waves.
 sumWaves :: Float -> [DIM2 -> Float] -> DIM2 -> Float
-sumWaves _ !waves = (\x -> (cos x + 1) / 2) . sum . sequence waves
+sumWaves _ !waves = (\x -> (cos (pi*x) + 1) / 2) . sum . sequence waves
 
 {-# INLINE dm1 #-}
 -- | Here's a helper function for computing the hard zigzag.
