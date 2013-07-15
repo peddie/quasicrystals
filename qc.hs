@@ -85,23 +85,6 @@ angles n = take n $ enumFromThen 0 (pi / fromIntegral n)
 sumWaves :: Float -> [DIM2 -> Float] -> DIM2 -> Float
 sumWaves _ !waves = (\x -> (cos (pi*x) + 1) / 2) . sum . sequence waves
 
-{-# INLINE dm1 #-}
--- | Here's a helper function for computing the hard zigzag.
-dm1 :: Float -> (Int, Float)
-dm1 x = (dd, x - fromIntegral dd)
-  where dd = floor (toRational x)
-
-{-# INLINE sumWaves' #-}
--- | This version of sumWaves does a nonlinear (hard) zigzag wrap,
--- which looks brighter and more interesting but takes about 3 times
--- as much time.
-sumWaves' :: Float -> [DIM2 -> Float] -> DIM2 -> Float
-sumWaves' _ !waves = wrap . sum . sequence waves
-   where
-     wrap m = case dm1 m of
-         (k, v) | odd k     -> 1-v
-                | otherwise -> v
-
 {-# INLINE wave #-}
 -- | Compute the value of a single wave (specified by frequency, phase
 -- and angle within the plane) at a point in the image.
