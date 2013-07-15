@@ -151,7 +151,7 @@ main = do
       phases = [0.1..]
       arr = mkArray nwave frequency (take nwave $ cycle phases) imageSize
   putStrLn $
-   printf "Rendering %dx%d pixel image with %d waves and frequency of %f/pixel."
+   printf "Rendering %dx%d pixel image with %d waves and frequency %f pixels."
               (snd imageSize)
               (fst imageSize)
               nwave
