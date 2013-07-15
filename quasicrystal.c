@@ -125,7 +125,7 @@ main(void) {
       p = 0;
       for (unsigned int w = 0; w < nwave; w++)
         p += wave(freq, phases[w], angles[w], x - pixels / 2, y - piyels / 2);
-      p = (cos(p) + 1) / 2;
+      p = (cos(M_PI * p) + 1) / 2;
       const uint8_t tmp = (uint8_t) (255 * MIN(1, MAX(p, 0)));
 /* #undef p */
       img[idx] = (0xff << 24) | tmp << 16 | tmp << 8 | tmp;
